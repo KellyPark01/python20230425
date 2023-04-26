@@ -1,8 +1,8 @@
-# db1.py
+# db2.py
 import sqlite3
 
-#연결객체를 생성(메모리에서 연습)
-con = sqlite3.connect(":memory:")
+#연결객체를 생성(물리적인 파일에 저장)
+con = sqlite3.connect("c:\\work\\sample.db")  # db1.py와 다른 점
 #SQL 구문을 실행할 커서객체
 cur = con.cursor()
 #테이블 구조(스키마) 생성
@@ -23,5 +23,23 @@ cur.executemany("insert into PhoneBook (name, phoneNum) values " +   # 1번 수�
 
 #검색
 cur.execute("select * from PhoneBook;")
-for row in cur:   # 커서 인스턴스에서 
-    print(row)    # 결과  (1, '홍길동', '010-111-1234') (2, '이순신', '010-222-1234') (3, '전우치', '010-333-1234') (4, '박문수', '010-123-5678')
+#for row in cur:   # 커서 인스턴스에서 
+#    print(row)    # 결과  (1, '홍길동', '010-111-1234') (2, '이순신', '010-222-1234') (3, '전우치', '010-333-1234') (4, '박문수', '010-123-5678')
+print("---fetchone()---")
+print(cur.fetchone())        # 보여주고 사라진다. 
+cur.execute("select * from PhoneBook;")   # 전체를 다시 보여주고 싶으면 다시 조회해서 버퍼를 채워주고 검색한다.
+print("---fetchmany(2)---")
+print(cur.fetchmany(2))
+print("---fetchall()---")
+cur.execute("select * from PhoneBook;") 
+print(cur.fetchall())  # 버퍼 메모리에 남아있는 데이터만 조회된다.
+#작업 정상 종료
+con.commit()
+
+
+#파이썬 아이들에서 실행해보자
+#import sqlite3 
+#con = sqlite3.connect("c:\\work2\\test.db") 
+#cur = con.cursor()
+#cur.execute("select * from PhoneBook;")
+#cur.fetchall()   #커밋이 되면 전체 데이터가 조회된다.
