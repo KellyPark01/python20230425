@@ -2,9 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
 
-search_keyword='맥북에어'
+search_keyword='아이폰'  # 검색하고 싶은걸로 
 
-url = f'https://search.naver.com/search.naver?where=view&sm=tab_jum&query={search_keyword}'
+# {search_keyword}를 검색하고 싶은 단어로 바꾸고 주소 복사해서 확인함
+url = f'https://search.naver.com/search.naver?where=view&sm=tab_jum&query={search_keyword}'   
 
 response = requests.get(url)
 
@@ -26,7 +27,7 @@ for page in range(1, 101):
     for post in posts:
         blog_name = post.find('a', {'class':'sub_txt sub_name'}).text
         try:
-            blog_address = blog_name['href']
+            blog_address = blog_name['href']   # 숨어 있는 속성 찾기
         except TypeError:
             blog_address = "" 
 
@@ -43,6 +44,7 @@ for page in range(1, 101):
 
         ws.append([blog_name, blog_address, post_title, post_date])
 
-path = '/Users/user/Desktop/'
-file_path = f'{path}{search_keyword}_blog_data.xlsx'
+# path = '/Users/user/Desktop/'
+path = 'c:\\work\\'
+file_path = f'{path}{search_keyword}_blog_data.xlsx'  # 서치키워드를 검색해서 결과를 패스에 엑셀파일로 저장
 wb.save(file_path)
