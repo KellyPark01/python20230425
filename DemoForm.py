@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
 # 디자인한 파일을 로딩
-form_class = uic.loadUiType("DemoForm.ui")[0]
+form_class = uic.loadUiType("DemoForm.ui")[0]  # ui 태그는 일반적으로 1개이나 여러개가 나올 수 있으므로
 # 윈도우(폼)클래스 정의
 class DemoForm(QDialog, form_class):
     def __init__(self):       # 초기화 메소드
