@@ -23,13 +23,15 @@ for n in range(0,10):  # 0부터 9까지의 정수를 만들어준다. 규칙이
         # <span class="subject_fixed" data-role="list-title-text" title="아이패드 9세대 64GB 셀룰러 LTE 단순개봉 새제품급 판매합니다.">
         # 	아이패드 9세대 64GB 셀룰러 LTE 단순개봉 새제품급 판매합니다.
         # </span>        
-
         for item in list:
-                try:    # 시도해보고 에러가 나면 나가라 ( try : 에러 처리하는 키워드)
-                        title = item.text.strip()  # 태그는 제외하고 공백 제거
+                # try:    # 시도해보고 에러가 나면 나가라 ( try : 에러 처리하는 키워드)
+                #         title = item.text.strip()  # 태그는 제외하고 공백 제거
+                #         print(title)
+                #         # if (re.search('아이폰', title)):
+                #         #         print(title.strip())
+                # except:
+                #         pass
+                title = item.text.strip()  # 태그는 제외하고 공백 제거
+                #print(title)
+                if (re.search('애플워치', title)):   # re.search : 끝까지 지독하게 검색한다. ( 애플워치만 보여줌 )
                         print(title)
-                        # if (re.search('아이폰', title)):
-                        #         print(title.strip())
-                except:
-                        pass
-        
