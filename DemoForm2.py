@@ -11,7 +11,7 @@ import requests #웹서버에 요청할 수 있는 라이브러리 요청
 from bs4 import BeautifulSoup  #BeautifulSoup 모듈
 
 # 디자인한 파일을 로딩 : DemoForm.ui
-form_class = uic.loadUiType("DemoForm2.ui")[0]  # ui 태그는 일반적으로 1개이나 여러개가 나올 수 있으므로 슬라이싱 잘라서 쓸 수 있다.
+form_class = uic.loadUiType("DemoForm2.ui")[0]  # ui 태그는 일반적으로 1개이나 여러개가 나올 수 있으므로 슬라이싱 잘라서 쓸 수 있다. (경로를 써줘도 된다)
 # 윈도우(폼)클래스 정의(QMainWindow상속)
 class DemoForm(QMainWindow, form_class):  # QMainWindow : 큰창
     def __init__(self):       # 초기화 메소드
@@ -19,7 +19,7 @@ class DemoForm(QMainWindow, form_class):  # QMainWindow : 큰창
         self.setupUi(self)
 
     # 슬롯부분을 추가한다.    
-    def firstClick(self):
+    def firstClick(self):  # 첫번째 버튼을 누르면 처리되는 슬록 부분
         url = "https://www.daangn.com/"  # 당근마켓 문자열 변수url에 담아서
         response = requests.get(url)     # 요청 후 response 문자열로 받음
         soup = BeautifulSoup(response.text, "html.parser")   # soup이라는 객체를 보낸다
@@ -37,9 +37,9 @@ class DemoForm(QMainWindow, form_class):  # QMainWindow : 큰창
             f.write(result)
         f.close()  # for 루프 끝나고 파일 닫기        
         self.label.setText("당근마켓에서 크롤링 완료")  # 라벨에 문자열을 출력한다.
-    def secondClick(self):
+    def secondClick(self):  # 두번째 버튼을 누르면 처리되는 슬록 부분
         self.label.setText("두번째 버튼을 클릭")  # 라벨에 문자열을 출력한다.
-    def thirdClick(self):
+    def thirdClick(self):   # 세번째 버튼을 누르면 처리되는 슬록 부분
         self.label.setText("세번째 버튼을 클릭~~")  # 라벨에 문자열을 출력한다.       
 
 #직접 모듈을 실행한 경우 인스턴스 생성
