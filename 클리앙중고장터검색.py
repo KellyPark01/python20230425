@@ -25,7 +25,7 @@ for n in range(0,10):  # 0부터 9까지의 정수를 만들어준다. 규칙이
         # </span>        
 
         for item in list:
-                try:    # 시도해보고 에러가 나면 나가fk ( try : 에러 처리하는 키워드)
+                try:    # 시도해보고 에러가 나면 나가라 ( try : 에러 처리하는 키워드)
                         title = item.text.strip()  # 태그는 제외하고 공백 제거
                         print(title)
                         # if (re.search('아이폰', title)):
