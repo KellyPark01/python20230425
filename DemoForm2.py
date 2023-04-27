@@ -10,10 +10,6 @@ import requests #웹서버에 요청할 수 있는 라이브러리 요청
 #크롤링
 from bs4 import BeautifulSoup  #BeautifulSoup 모듈
 
-
-
-
-
 # 디자인한 파일을 로딩 : DemoForm.ui
 form_class = uic.loadUiType("c:\\work\\DemoForm2.ui")[0]  # ui 태그는 일반적으로 1개이나 여러개가 나올 수 있으므로 슬라이싱 잘라서 쓸 수 있다.
 # 윈도우(폼)클래스 정의(QMainWindow상속)
