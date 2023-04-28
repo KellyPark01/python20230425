@@ -1,10 +1,11 @@
 import sys
 from PyQt5.QtWidgets import *
 import urllib.request
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup   # 웹서버와 통신 후 그롤링
 import webbrowser   #브라우저로 넘기는 경우 
-import re 
+import re  # 정규표현식 사용
 
+#100% 코드로만 작업
 class Form(QMainWindow):
     def __init__(self):
         super().__init__()
