@@ -7,4 +7,4 @@ myCampus = Series( [100,200,300,400,500],
 type(myCampus)
 
 #슬라이싱
-myCampus
+myCampus["2023-04-26"]  # 인덱스가 날짜로 바꿔치기 된 것이다.
